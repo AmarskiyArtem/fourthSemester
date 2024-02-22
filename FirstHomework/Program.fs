@@ -18,7 +18,13 @@ let reverse ls =
         else helper (List.tail donor) (List.head donor :: recipient)
     helper ls []
 
+let findNumber ls x =
+    let rec helper ls n =
+        if ls = [] then failwith "Not found"
+        elif List.head ls = x then n
+        else helper (List.tail ls) (n + 1)
+    helper ls 0
 
 
-let x = reverse [1 .. 10]
-printfn "%A" x
+//let x = reverse [1 .. 10]
+printfn "%d" (findNumber [0 .. 10] 8)
