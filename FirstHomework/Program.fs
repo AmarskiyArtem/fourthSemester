@@ -1,12 +1,12 @@
 ﻿let factorial n = 
-    if n < 0 then invalidArg "n""n can't be negative" else
+    if n < 0 then invalidArg "n" "n can't be negative" else
     let rec helper acc n =
         if n = 0 then acc
         else helper (acc * n) (n - 1)
     helper 1 n
 
 let fibonacci n =
-    if n < 0 then invalidArg "n""n can't be negative" else
+    if n < 0 then invalidArg "n" "n can't be negative" else
     let rec helper a b n =
         if n = 0 then a
         else helper b (a + b) (n - 1)
@@ -30,6 +30,3 @@ let findNumber ls x =
         elif List.head ls = x then n
         else helper (List.tail ls) (n + 1)
     helper ls 0
-
-
-printfn "%A" (degreesOfTwo 0 5)
