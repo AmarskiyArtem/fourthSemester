@@ -12,10 +12,13 @@ let fibonacci n =
         else helper b (a + b) (n - 1)
     helper 0 1 n
 
+let reverse ls =
+    let rec helper donor recipient =
+        if donor = [] then recipient
+        else helper (List.tail donor) (List.head donor :: recipient)
+    helper ls []
 
-let rec x a =
-    printfn "%d" (fibonacci a)
-    x (a - 1)
 
-x 10
 
+let x = reverse [1 .. 10]
+printfn "%A" x
