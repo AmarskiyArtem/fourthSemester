@@ -19,11 +19,10 @@ let reverse ls =
     helper ls []
 
 let degreesOfTwo n m =
-    let rec helper ls degree number =
-        if degree = m + 1 then ls
-        else
-            helper (number :: ls) (degree + 1) (number * 2)
-    reverse (helper [] n (pown 2 n))
+    let rec helper ls counter =
+        if counter = 0 then ls
+        else helper (((List.head ls) / 2) :: ls) (counter - 1)
+    helper [pown 2 (n + m)] m
 
 let findNumber ls x =
     let rec helper ls n =
@@ -31,3 +30,6 @@ let findNumber ls x =
         elif List.head ls = x then n
         else helper (List.tail ls) (n + 1)
     helper ls 0
+
+
+printfn "%A" (degreesOfTwo 0 5)
