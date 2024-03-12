@@ -14,14 +14,16 @@ let fibonacci n =
 
 let reverse ls =
     let rec helper donor recipient =
-        if donor = [] then recipient
-        else helper (List.tail donor) (List.head donor :: recipient)
+        match donor with
+        | [] -> recipient
+        | head :: tail -> helper tail (head :: recipient)
     helper ls []
 
 let degreesOfTwo n m =
     let rec helper ls counter =
-        if counter = 0 then ls
-        else helper (((List.head ls) / 2) :: ls) (counter - 1)
+        match counter with
+        | 0 -> ls
+        | _ -> helper ((List.head ls) / 2 :: ls) (counter - 1)
     helper [pown 2 (n + m)] m
 
 let findNumber ls x =
