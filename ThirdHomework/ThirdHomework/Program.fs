@@ -1,4 +1,6 @@
-﻿type LambdaTerm =
+﻿module BetaReduction
+
+type LambdaTerm =
     | Var of string
     | Abstraction of string * LambdaTerm
     | Application of LambdaTerm * LambdaTerm
