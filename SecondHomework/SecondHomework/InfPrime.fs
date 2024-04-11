@@ -1,7 +1,7 @@
 module SecondHomework.InfPrime
 
 let IsPrime x =
-    if x < 3 then false
+    if x < 2 then false
     else
         let sqrtOfX = sqrt (float x)
         let rec f a =
