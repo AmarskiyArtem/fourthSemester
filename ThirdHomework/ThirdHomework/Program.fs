@@ -13,11 +13,11 @@ let rec freeVars term =
 
 let isFree v term = Set.contains v (freeVars term)
 
-let rec newVar usedVars =
-    let rec freshVar' v =
-        if Set.contains v usedVars then freshVar' v + "x"
+let newVar usedVars =
+    let rec freshVar v =
+        if Set.contains v usedVars then freshVar v + "x"
         else v
-    freshVar' "x"
+    freshVar "x"
 
 let rec substitute x baseTerm term =
     match baseTerm with
@@ -34,7 +34,7 @@ let rec substitute x baseTerm term =
 
 let rec betaReduce term =
     match term with
-    | Var v -> Var v
-    | Application (Abstraction (v, t), t') -> substitute v t' t
+    | Var v -> term
+    | Application (Abstraction (v, t), t') -> substitute v t t'
     | Application (t1, t2) -> Application (betaReduce t1, betaReduce t2)
     | Abstraction (v, t) -> Abstraction (v, betaReduce t)
