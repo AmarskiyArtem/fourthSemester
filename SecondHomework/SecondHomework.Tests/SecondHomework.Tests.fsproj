@@ -6,6 +6,7 @@
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BinaryTreeTests.fs" />
     <Compile Include="EvenNumbersTests.fs" />
     <Compile Include="primeNumbersTests.fs" />
     <Compile Include="Program.fs" />
