@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
@@ -8,6 +8,5 @@
     <Compile Include="BinaryTree.fs" />
     <Compile Include="InfPrime.fs" />
     <Compile Include="EvenNumbers.fs" />
-    <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
