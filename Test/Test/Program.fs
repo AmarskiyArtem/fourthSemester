@@ -1,5 +1,8 @@
 ﻿module Test
 
+
+// Calculates the sum of even Fibonacci numbers which less than n. 
+// Returns the sum of even Fibonacci numbers.
 let fibSumEven n =
     let rec fibHelper a b sum = 
         if b >= n then
@@ -11,6 +14,7 @@ let fibSumEven n =
     fibHelper 1 1 0
 
 
+// Returns a string with a square of * with a side of n.
 let getSquare n =
     if n < 1 then
         ""
@@ -23,18 +27,22 @@ let getSquare n =
         helper 1 n ""
 
 
+// A priority queue implementation.
 type PriorityQueue<'T>() =
     let mutable elements : List<'T * int> = []
 
+    // Adds an element to the queue with a priority.
     member this.Enqueue(value: 'T, priority: int) =
-        elements <- (value, priority) :: elements
+        elements <- List.sortBy snd (elements @ [(value, priority)])
 
+    // Removes the element with the highest priority from the queue.
     member this.Dequeue() =
         if List.isEmpty elements then
             failwith "Queue is empty"
-        let maxPriority = elements |> List.minBy snd |> snd
-        elements <- elements |> List.filter (fun (_, p) -> p <> maxPriority)
-        maxPriority
+        else
+            let result = List.head elements
+            elements <- List.tail elements
+            fst result
 
 printfn "Сумма чётных чисел Фибоначчи до 1 000 000: %d" (fibSumEven 1000000)
 
