@@ -16,4 +16,4 @@ let Data () =
 
 [<TestCaseSource("Data")>]
 let generatePrimeNumbersTests number expected =  
-    AllPrimes |> Seq.take number |> should equal expected
+    allPrimes |> Seq.take number |> should equal expected

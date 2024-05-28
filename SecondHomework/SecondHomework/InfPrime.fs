@@ -1,15 +1,15 @@
 module SecondHomework.InfPrime
 
-let IsPrime x =
+let isPrime x =
     if x < 2 then false
     else
         let sqrtOfX = sqrt (float x)
-        let rec f a =
-            match a with
-            | _ when float a > sqrtOfX -> true 
-            | _ when x % a = 0 -> false
-            | _ -> f (a + 1)
-        f 2
+        let rec helper number =
+            match number with
+            | _ when float number > sqrtOfX -> true 
+            | _ when x % number = 0 -> false
+            | _ -> helper (number + 1)
+        helper 2
 
-let AllPrimes =
-    Seq.initInfinite id |> Seq.filter IsPrime
+let allPrimes =
+    Seq.initInfinite id |> Seq.filter isPrime

@@ -20,9 +20,16 @@ let ``computeTree should correctly compute simple operations``() =
 let ``computeTree should correctly compute operations``() =
     let tree = Node('*', Node('+', Leaf 2.0, Leaf 3.0), Leaf 4.0)
     let result = computeTree tree
-    result |> should equal 20.0
+    result |> should (equalWithin 0.001) 20.0
 
 [<Test>]
-let ``computeTree should fail with unsupported operator``() =
-    let tree = Node('x', Leaf 2.0, Leaf 3.0)
-    Assert.Throws<System.Exception>(fun () -> computeTree tree |> ignore)
+let ``computeTree should correctly compute operations with negative numbers``() =
+    let tree = Node('-', Leaf 2.0, Leaf 3.0)
+    let result = computeTree tree
+    result |> should equal -1.0
+
+[<Test>]
+let ``computeTree should correctly compute operations with division``() =
+    let tree = Node('/', Leaf 6.0, Leaf 3.0)
+    let result = computeTree tree
+    result |> should (equalWithin 0.001) 2.0

@@ -17,17 +17,16 @@ let Data() =
 
 [<TestCaseSource("Data")>]
 let ``MapCounter should expected result`` lst expected =
-    CountEvenNumbersMap lst |> should equal expected
+    countEvenNumbersMap lst |> should equal expected
 
 
 [<Test>]
 let ``even numbers funs should be equivalent``() =
     let areEquivalent lst = 
-        let filterResult = CountEvenNumbersFilter lst
-        let mapResult = CountEvenNumbersMap lst
-        let foldResult = CountEvenNumbersFold lst
+        let filterResult = countEvenNumbersFilter lst
+        let mapResult = countEvenNumbersMap lst
+        let foldResult = countEvenNumbersFold lst
         let x = mapResult = filterResult
         let y = foldResult = filterResult
         x && y
-
-    Check.Quick areEquivalent
+    Check.QuickThrowOnFailure areEquivalent
