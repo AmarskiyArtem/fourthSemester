@@ -1,11 +1,13 @@
 module FourthHomework.Brackets
 
-let isBalanced (input: string) =
-    let matchingBrackets = Map.ofList [('[', ']'); ('{', '}'); ('(', ')')]
-    let isOpeningBracket c = matchingBrackets.ContainsKey(c)
-    let isMatchingBracket stackChar closeChar =
-        matchingBrackets.TryFind(stackChar).Value = closeChar
+let matchingBrackets = Map.ofList [('[', ']'); ('{', '}'); ('(', ')')]
 
+let isOpeningBracket c = matchingBrackets.ContainsKey(c)
+
+let isMatchingBracket stackChar closeChar =
+    matchingBrackets.TryFind(stackChar).Value = closeChar
+
+let isBalanced (input: string) =
     let rec check stack chars =
         match chars with
         | [] -> List.isEmpty stack

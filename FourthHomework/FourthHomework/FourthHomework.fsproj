@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="pointfree.fs" />
     <Compile Include="bracketBalance.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
