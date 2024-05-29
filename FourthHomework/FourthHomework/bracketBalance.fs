@@ -1,4 +1,4 @@
-module FourthHomework.Brackets
+module FourthHomework.BracketBalance
 
 let matchingBrackets = Map.ofList [('[', ']'); ('{', '}'); ('(', ')')]
 
@@ -20,5 +20,4 @@ let isBalanced (input: string) =
                     check remainingStack rest
                 else
                     false
-
     check [] (List.ofSeq input)

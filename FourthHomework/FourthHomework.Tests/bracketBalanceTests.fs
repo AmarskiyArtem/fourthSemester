@@ -3,7 +3,7 @@ module FourthHomework.BracketBalanceTests
 open NUnit.Framework
 open FsUnit
 
-open FourthHomework.Brackets
+open FourthHomework.BracketBalance
 
 let Data () = 
     [   
