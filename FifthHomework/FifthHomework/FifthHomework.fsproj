@@ -1,12 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <Compile Include="Program.fs" />
+    <Compile Include="IOS.fs" />
+    <Compile Include="Computer.fs" />
+    <Compile Include="MacOS.fs" />
+    <Compile Include="Linux.fs" />
+    <Compile Include="Windows.fs" />
+    <Compile Include="localNetwork.fs" />
   </ItemGroup>
-
 </Project>
