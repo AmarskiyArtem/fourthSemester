@@ -7,22 +7,22 @@ open BetaReduction
 let Expressions () =
     [
         Application(
-            Abstraction("x", Var "y"),
+            Abstraction("x", Variable "y"),
             Application(
-                Abstraction("x", Application(Var "x", Application(Var "x", Var "x"))),
-                Abstraction("x", Application(Var "x", Application(Var "x", Var "x")))
+                Abstraction("x", Application(Variable "x", Application(Variable "x", Variable "x"))),
+                Abstraction("x", Application(Variable "x", Application(Variable "x", Variable "x")))
             )
-        ), Var "y"
-        Application(Abstraction("x", Var "x"), Var "y"), Var "y"
+        ), Variable "y"
+        Application(Abstraction("x", Variable "x"), Variable "y"), Variable "y"
         Application(
             Abstraction(
                 "f",
                 Abstraction(
                     "x",
-                    Application(Application(Var "f", Var "x"), Var "x"))
+                    Application(Application(Variable "f", Variable "x"), Variable "x"))
             ),
-            Var "+"
-        ), Abstraction("x", Application(Application(Var "+", Var "x"), Var "x"))
+            Variable "+"
+        ), Abstraction("x", Application(Application(Variable "+", Variable "x"), Variable "x"))
     ]|> List.map (fun (term, normForm) -> TestCaseData(term, normForm))
 
 
