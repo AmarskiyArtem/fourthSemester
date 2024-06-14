@@ -1,0 +1,26 @@
+\documentclass{report}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath, amssymb, scalerel, amsfonts, mathtools}
+\setcounter{secnumdepth}{-1}
+
+\begin{document}
+\section{Задание 1}
+\begin{flalign*}
+  & ((\lambda a.(\lambda b.b\:b)\:(\lambda b.b\:b))\:b)\:((\lambda c.(c\:b))\:(\lambda a.a)) \xrightarrow{} \\
+  & ((\lambda b.b\:b)\:(\lambda b.b\:b))\:((\lambda c.(c\:b))\:(\lambda a.a)) \xrightarrow{} \\
+  & ((\lambda b.b\:b)\:(\lambda b.b\:b))\:((\lambda c.(c\:b))\:(\lambda a.a)) \xrightarrow{} \\
+\end{flalign*}
+Преобразования "зациклились" По теореме Карри, если бы у терма была нормальная форма, то последовательным сокращением левого редекса мы бы к ней пришли.
+\section{Задание 2}
+\begin{flalign*}
+    & S\:K\:K = (\lambda x\:y\:z.x\:z\:(y\:z))\:(\lambda x\:y.x)\:(\lambda x\:y.x) \xrightarrow{} \\
+    & (\lambda y\:z.(\lambda x\:y.x)\:z\:(y\:z))\:(\lambda x\:y.x) \xrightarrow{} \\
+    & \lambda z.((\lambda x\:y.x)\:z\:((\lambda x\:y.x)\:z)) \xrightarrow{} \\
+    & \lambda z.((\lambda x\:y.x)\:z\:(\lambda y.z)) \xrightarrow{} \\
+    & \lambda z.((\lambda y.z)\:(\lambda y.z)) \xrightarrow{} \\
+    & \lambda z.z\:=\:I \\
+\end{flalign*}
+\end{document}
